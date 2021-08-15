@@ -12,30 +12,17 @@ public class MainActivity extends AppCompatActivity {
     private View.OnTouchListener touchListener;
     private float touchX;
     private float touchY;
+    DrawScene scene;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        jl.example.drawingmovingballs2.DrawScene scene = new jl.example.drawingmovingballs2.DrawScene(this, start_x, start_y);
+        scene = new jl.example.drawingmovingballs2.DrawScene(this, start_x, start_y);
         setContentView(scene);
         scene.setOnTouchListener(touchListener);
 
-        touchListener = new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                touchX = motionEvent.getX();
-                touchY = motionEvent.getY();
 
-                if(scene.getX()+50 < touchX & scene.getX()-50 > touchX & scene.getY()+50 < touchY & scene.getY()-50 >touchY ) {
-
-                }
-                return false;
-            }
-        }
     }
-
-
-
 
 }
